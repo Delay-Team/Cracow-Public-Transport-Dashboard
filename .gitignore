@@ -102,3 +102,11 @@ dist
 
 # TernJS port file
 .tern-port
+
+./RestApi/package-lock.json 
+
+restapi/.idea/.gitignore
+restapi/.idea/misc.xml
+restapi/.idea/modules.xml
+restapi/.idea/restapi.iml
+restapi/.idea/vcs.xml

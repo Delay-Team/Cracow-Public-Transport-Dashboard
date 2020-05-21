@@ -29,7 +29,7 @@ jobs:
         # If your function app project is not located in your repository's root
         # Please change your directory for pip in pushd
         ls
-        pushd DataCrawler
+        cd DataCrawler
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         popd:

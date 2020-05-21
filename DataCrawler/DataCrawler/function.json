@@ -11,11 +11,6 @@
       "direction": "out",
       "type": "cosmosDB",
       "name": "outdoc",
-      "databaseName": "testdb",
-      "collectionName": "feedcol",
-      "leaseCollectionName": "leases",
-      "createLeaseCollectionIfNotExists": true,
-      "connectionStringSetting": "MyCosmosDBConnectionString",
       "createIfNotExists": true
     }
   ]

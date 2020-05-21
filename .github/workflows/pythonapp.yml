@@ -24,16 +24,11 @@ jobs:
       with:
         python-version: 3.7
     - name: Install dependencies
+      working-directory: ./DataCrawler
       run: |
-        echo "ls"
-        pwd
-        ls
-        cd ..
-        pwd
-        ls
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      working-directory: ./DataCrawler
+     
         
         

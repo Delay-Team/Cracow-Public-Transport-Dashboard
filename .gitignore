@@ -118,3 +118,4 @@ ArchiveManager/venv
 *.pyc
 **/.idea
 
+local.settings.json

@@ -3,6 +3,7 @@ from .config.backend_endpoints import BackendEndpoints
 import requests
 import json
 import logging
+from datetime import datetime
 
 class CrawlerService:
 
@@ -37,7 +38,8 @@ class CrawlerService:
             else:
                 actualTime = trip["mixedTime"]
             self.triRepo.delete_by_trip_id(trip_id)
-            self.triRepo.insert_trip({"line_number": line_number, "status": status, "trip_id": trip_id, "planned_time": plannedTime, "actual_time": actualTime, "stop_name": stop_name})
+            self.triRepo.insert_trip({"line_number": line_number, "status": status, "trip_id": trip_id, "planned_time": plannedTime, "actual_time": actualTime,
+             "stop_name": stop_name, "timestamp": datetime.today().strftime('%Y-%m-%d')})
 
 
     def get_all_stops_ids(self):

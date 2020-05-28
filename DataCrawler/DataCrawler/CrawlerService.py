@@ -12,9 +12,8 @@ class CrawlerService:
         self.triRepo = TripRepository()
 
     def execute(self):
-#         logging.info("executing crawler service")
+        logging.info("executing crawler service")
         ids = self.get_all_stops_ids()
-#         logging.info("Number of stops: " + str(len(ids))
         for id in ids:
             self.update_trips_data(id)
 
@@ -25,7 +24,8 @@ class CrawlerService:
         objects = json.loads(response.text)
         trips = objects["actual"]
         stop_name = objects["stopName"]
-#          logging.info("Updating: " + stop_name)
+        logging.info("Updating... ")
+        logging.info(stop_name)
         for trip in trips:
             plannedTime = trip["plannedTime"]
             status = trip["status"]

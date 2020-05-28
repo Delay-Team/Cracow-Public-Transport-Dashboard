@@ -9,7 +9,6 @@ from .CrawlerService import CrawlerService
 def main(mytimer: func.TimerRequest, outdoc: func.Out[func.Document]):
     logging.info("Executing Data Crawler")
     arr = os.listdir()
-    logging.info("logging DUpa")
     logging.info(arr)
     import pathlib
     logging.info(pathlib.Path().absolute())

@@ -3,8 +3,7 @@ import logging
 import azure.functions as func
 
 import os
-arr = os.listdir()
-logging.info("logging DUpa")
+from .CrawlerService import CrawlerService
 
 
 def main(mytimer: func.TimerRequest, outdoc: func.Out[func.Document]):
@@ -14,16 +13,12 @@ def main(mytimer: func.TimerRequest, outdoc: func.Out[func.Document]):
     logging.info(arr)
     import pathlib
     logging.info(pathlib.Path().absolute())
-    from .CrawlerService import CrawlerService
     service = CrawlerService()
-    service.get_all_stops_ids()
-
-
-#
-
-# if __name__ == '__main__':
-#     main(func.TimerRequest, 0)
+    service.execute()
 
 
 if __name__ == '__main__':
-    print("as")
+    main(func.TimerRequest, 0)
+
+
+

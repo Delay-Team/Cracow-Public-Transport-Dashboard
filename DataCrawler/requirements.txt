@@ -12,3 +12,5 @@ six==1.14.0
 sqlparse==0.2.4
 azure-functions
 requests
+dnspython
+python-dotenv

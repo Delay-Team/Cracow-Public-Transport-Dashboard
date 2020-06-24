@@ -7,7 +7,7 @@ from datetime import datetime
 
 class CrawlerService:
 
-    tripRepo: TripRepository
+    triRepo: TripRepository
 
     def __init__(self):
         self.triRepo = TripRepository()

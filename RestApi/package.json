@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/app.js",
   "scripts": {
-    "build": "babel src -d lib",
-    "start": "nodemon --exec babel-node lib/app.js"
+    "build": "babel src -d src",
+    "start": "nodemon --exec babel-node src/app.js"
   },
   "author": "",
   "license": "ISC",

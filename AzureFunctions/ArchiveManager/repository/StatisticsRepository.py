@@ -11,11 +11,11 @@ class StatisticsRepository:
         load_dotenv()
         self.connection_string = os.getenv("mongo_connection")
 
-    def insert_line_statistics(self, lines_with_avg_delay_dict, day):
+    def insert_line_statistics(self, lines_with_avg_delay_dict, stops_with_avg_delay_dict, day):
         client = MongoClient(self.connection_string)
         db = client['my-db']
         collection = db['statistics']
-        collection.insert_one({"timestamp" :  day, "avg_delay_line_statistics" : lines_with_avg_delay_dict})
+        collection.insert_one({"timestamp" :  day, "avg_delay_line_statistics" : lines_with_avg_delay_dict, "avg_delay_stop_statistics" : stops_with_avg_delay_dict})
 
     def delete_line_statistics_by_day(self, day):
         client = MongoClient(self.connection_string)

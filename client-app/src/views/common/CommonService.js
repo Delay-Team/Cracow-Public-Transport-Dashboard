@@ -7,9 +7,8 @@ const checkStatus = (response) => {
     return response;
 };
 
-const getAllLines = () => {
-    const url = `${API_URL}/statistics/lines`;
-
+const getUrl = (type) => {
+    const url = `${API_URL}/statistics/${type}`;
     let myHeaders = new Headers();
 
     let fetchData = {
@@ -25,26 +24,14 @@ const getAllLines = () => {
         .catch(error => {
             return undefined
         });
+}
+
+const getAllLines = () => {
+    return getUrl('lines')
 };
 
 const getAllStops = () => {
-    const url = `${API_URL}/statistics/stops`;
-
-    let myHeaders = new Headers();
-
-    let fetchData = {
-        method: 'GET',
-        headers: myHeaders,
-        redirect: 'follow'
-    };
-
-    return fetch(url, fetchData)
-        .then(response => checkStatus(response))
-        .then(response => response.text())
-        .then(response => JSON.parse(response))
-        .catch(error => {
-            return undefined
-        });
+    return getUrl('stops')
 };
 
 export const commonService = { getAllLines, getAllStops };

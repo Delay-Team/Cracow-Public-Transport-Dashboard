@@ -3,7 +3,7 @@ import logging
 import azure.functions as func
 
 import os
-from .ArchiveService import ArchiveService
+from ArchiveService import ArchiveService
 
 
 

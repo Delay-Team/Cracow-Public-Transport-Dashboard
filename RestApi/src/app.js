@@ -1,8 +1,10 @@
-let express = require('express')
-var mongoose = require('mongoose')
+let express = require('express');
+var mongoose = require('mongoose');
+var cors = require('cors');
 
 const app = express();
-const statisticsRouter = require('./routes/statistics')
+const statisticsRouter = require('./routes/statistics');
+app.use(cors());
 
 app.get('/', (req, res) => {
 	res.status(200).send({
@@ -10,7 +12,7 @@ app.get('/', (req, res) => {
 	})
 });
 
-const PORT = 3000;
+const PORT = 3008;
 
 app.listen(PORT, () => {
 	console.log(`server running on port ${PORT}`)

@@ -1,5 +1,5 @@
-from .repository.TripRepository import TripRepository
-from .config.backend_endpoints import BackendEndpoints
+from repository.TripRepository import TripRepository
+from config.backend_endpoints import BackendEndpoints
 import requests
 import json
 import logging

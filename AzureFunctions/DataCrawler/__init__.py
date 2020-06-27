@@ -3,7 +3,7 @@ import logging
 import azure.functions as func
 
 import os
-from .CrawlerService import CrawlerService
+from CrawlerService import CrawlerService
 
 
 def main(mytimer: func.TimerRequest, outdoc: func.Out[func.Document]):
@@ -11,6 +11,7 @@ def main(mytimer: func.TimerRequest, outdoc: func.Out[func.Document]):
     arr = os.listdir()
     logging.info(arr)
     import pathlib
+
     logging.info(pathlib.Path().absolute())
     service = CrawlerService()
     service.execute()

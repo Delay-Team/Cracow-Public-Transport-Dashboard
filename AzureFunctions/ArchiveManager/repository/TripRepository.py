@@ -29,4 +29,20 @@ class TripRepository:
         trips = list(collection.find({"timestamp" : day, "line_number" : line}))
         return trips
 
+    def get_trips_for_stop(self, stop_name, day):
+        client = MongoClient(self.connection_string)
+        db = client['my-db']
+        collection = db['trip']
+        trips = list(collection.find({"timestamp" : day, "stop_name" : stop_name}))
+        return trips
 
+    def get_all_stops(self, day):
+        client = MongoClient(self.connection_string)
+        db = client['my-db']
+        collection = db['trip']
+        trips = list(collection.find({"timestamp" : day}))
+
+        resultWithDuplicates = list(map(lambda x: x["stop_name"], trips))
+        result = list(dict.fromkeys(resultWithDuplicates))
+        print(result)
+        return result

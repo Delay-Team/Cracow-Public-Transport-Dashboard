@@ -5,12 +5,12 @@ import {
     CCol,
     CRow
 } from '@coreui/react'
-import DataProvider from '../common/DataProvider'
+import LineDataProvider from '../common/LineDataProvider'
 
 import MainChartExample from '../charts/MainChartExample.js'
 const WidgetsBrand = lazy(() => import('../widgets/WidgetsBrand.js'))
 
-class Dashboard extends DataProvider {
+class Dashboard extends LineDataProvider {
 
     render() {
         let len = Object.keys(this.state.yData).length

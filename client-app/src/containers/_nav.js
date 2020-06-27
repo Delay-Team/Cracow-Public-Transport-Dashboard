@@ -13,6 +13,12 @@ export default [
   },
   {
     _tag: 'CSidebarNavItem',
+    name: 'Stop Statistics',
+    to: '/stop_statistics',
+    icon: 'cil-location-pin',
+  },
+  {
+    _tag: 'CSidebarNavItem',
     name: 'Ranking',
     to: '/ranking',
     icon: 'cil-calculator',

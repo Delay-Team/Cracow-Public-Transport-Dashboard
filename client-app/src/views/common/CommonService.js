@@ -27,6 +27,24 @@ const getAllLines = () => {
         });
 };
 
+const getAllStops = () => {
+    const url = `${API_URL}/statistics/stops`;
 
+    let myHeaders = new Headers();
 
-export const commonService = { getAllLines };
+    let fetchData = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+    };
+
+    return fetch(url, fetchData)
+        .then(response => checkStatus(response))
+        .then(response => response.text())
+        .then(response => JSON.parse(response))
+        .catch(error => {
+            return undefined
+        });
+};
+
+export const commonService = { getAllLines, getAllStops };

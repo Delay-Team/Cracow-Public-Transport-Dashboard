@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {commonService} from "./CommonService";
 
 
-class DataProvider extends Component {
+class StopDataProvider extends Component {
 
     constructor(props) {
         super(props);
@@ -10,7 +10,8 @@ class DataProvider extends Component {
             xData: [],
             yData: {},
             averageForAllDays: {},
-            active: 1
+            active: 1,
+            activeTab: 0
         }
 
         this.setChart();
@@ -26,34 +27,34 @@ class DataProvider extends Component {
         return ret;
     }
 
-    getAllLines = (lines) => {
-        let allLines = {}
+    getAllStops = (stops) => {
+        let allStops = {}
 
-        lines.map(day => {
-            day.delays.map(line => {
-                allLines[line.line] = Array(lines.length).fill(0)
+        stops.map(day => {
+            day.delays.map(stop => {
+                allStops[stop.stop] = Array(stop.length).fill(0)
             })
         })
 
-        return allLines
+        return allStops
     }
 
-    parseLines = (lines) => {
-        let yData = this.getAllLines(lines)
+    parseStops = (stops) => {
+        let yData = this.getAllStops(stops)
 
-        lines.map( (day, index) => {
-            day.delays.map(line => {
-                yData[line.line][index] = this.toSeconds(line.avgDelay)
+        stops.map( (day, index) => {
+            day.delays.map(stop => {
+                yData[stop.stop][index] = this.toSeconds(stop.avgDelay)
             })
         })
 
         this.setState({yData: yData}, () => {
-            this.calculateAverageForAllLines();
+            this.calculateAverageForAllStops();
         });
     }
 
     setChart = () => {
-        commonService.getAllLines().then(resp => {
+        commonService.getAllStops().then(resp => {
             let xData = [];
 
             resp.map(day => {
@@ -61,12 +62,12 @@ class DataProvider extends Component {
             });
 
             this.setState({xData: xData}, () => {
-                this.parseLines(resp);
+                this.parseStops(resp);
             });
         })
     }
 
-    calculateAverageForAllLines = () => {
+    calculateAverageForAllStops = () => {
         let averageForAllDays = {}
 
         for (let key in this.state.yData) {
@@ -83,4 +84,4 @@ class DataProvider extends Component {
     }
 }
 
-export default DataProvider
+export default StopDataProvider

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
     CCard,
     CCardBody,
@@ -13,10 +13,10 @@ import {
     CNavLink,
     CBadge
 } from '@coreui/react'
-import DataProvider from '../common/DataProvider'
+import LineDataProvider from '../common/LineDataProvider'
 
 
-class Ranking extends DataProvider {
+class Ranking extends LineDataProvider {
 
     sortDict = (dict) => {
         var items = Object.keys(dict).map(function(key) {

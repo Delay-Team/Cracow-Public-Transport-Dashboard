@@ -8,10 +8,10 @@ import {
     CRow,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import DataProvider from '../common/DataProvider'
+import LineDataProvider from '../common/LineDataProvider'
 
 
-class LineStatistics extends DataProvider {
+class LineStatistics extends LineDataProvider {
 
     getWholePercent(percentFor,percentOf)
     {

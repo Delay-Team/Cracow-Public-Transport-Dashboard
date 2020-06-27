@@ -32,7 +32,9 @@ class LineDataProvider extends Component {
         lines.map(day => {
             day.delays.map(line => {
                 allLines[line.line] = Array(lines.length).fill(0)
+                return line
             })
+            return day
         })
 
         return allLines
@@ -44,7 +46,9 @@ class LineDataProvider extends Component {
         lines.map( (day, index) => {
             day.delays.map(line => {
                 yData[line.line][index] = this.toSeconds(line.avgDelay)
+                return line
             })
+            return day
         })
 
         this.setState({yData: yData}, () => {
@@ -58,6 +62,7 @@ class LineDataProvider extends Component {
 
             resp.map(day => {
                 xData.push(day.date);
+                return day
             });
 
             this.setState({xData: xData}, () => {

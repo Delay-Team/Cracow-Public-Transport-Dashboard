@@ -33,7 +33,9 @@ class StopDataProvider extends Component {
         stops.map(day => {
             day.delays.map(stop => {
                 allStops[stop.stop] = Array(stop.length).fill(0)
+                return stop
             })
+            return day
         })
 
         return allStops
@@ -45,7 +47,9 @@ class StopDataProvider extends Component {
         stops.map( (day, index) => {
             day.delays.map(stop => {
                 yData[stop.stop][index] = this.toSeconds(stop.avgDelay)
+                return stop
             })
+            return day
         })
 
         this.setState({yData: yData}, () => {
@@ -59,6 +63,7 @@ class StopDataProvider extends Component {
 
             resp.map(day => {
                 xData.push(day.date);
+                return day
             });
 
             this.setState({xData: xData}, () => {

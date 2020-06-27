@@ -14,7 +14,6 @@ import {
 
 import CIcon from '@coreui/icons-react'
 
-// sidebar nav config
 import navigation from './_nav'
 
 const TheSidebar = () => {

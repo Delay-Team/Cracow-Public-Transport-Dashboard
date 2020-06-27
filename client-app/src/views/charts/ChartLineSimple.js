@@ -132,7 +132,6 @@ const ChartLineSimple = props => {
 ChartLineSimple.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
-  //
   borderColor: PropTypes.string,
   backgroundColor: PropTypes.string,
   pointHoverBackgroundColor: PropTypes.string,

@@ -72,6 +72,7 @@ class StopStatistics extends StopDataProvider {
         let averageForDay = {}
         Object.entries(this.state.yData).map(([key, value]) => {
             averageForDay[key] = value[day]
+            return [key, value]
         })
         return (
             <CTabPane key={day}>

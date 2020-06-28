@@ -1,5 +1,5 @@
-from .repository.TripRepository import TripRepository 
-from .repository.StatisticsRepository import StatisticsRepository 
+from .repository.TripRepository import TripRepository
+from .repository.StatisticsRepository import StatisticsRepository
 from datetime import datetime, timedelta
 
 class ArchiveService:

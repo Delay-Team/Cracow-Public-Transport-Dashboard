@@ -22,6 +22,12 @@ export default [
     name: 'Ranking',
     to: '/ranking',
     icon: 'cil-calculator',
+  },
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'Daily Statistics',
+    to: '/daily_statistics',
+    icon: 'cil-chart-line',
   }
 ]
 

@@ -34,4 +34,8 @@ const getAllStops = () => {
     return getUrl('stops')
 };
 
-export const commonService = { getAllLines, getAllStops };
+const getDaily = () => {
+    return getUrl('daily')
+};
+
+export const commonService = { getAllLines, getAllStops, getDaily };

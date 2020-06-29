@@ -83,7 +83,7 @@ class WidgetsBrand extends Component {
             )
         }
         else if (this.counter === 3) {
-            this.counter++;
+            this.counter=0;
             return(
                 <CCol sm="6" lg="3" key={data.line}>
                     <CWidgetBrand
@@ -104,9 +104,6 @@ class WidgetsBrand extends Component {
                     </CWidgetBrand>
                 </CCol>
             )
-        }
-        else {
-            this.counter = 0;
         }
 
     }

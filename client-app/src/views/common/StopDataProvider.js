@@ -52,6 +52,10 @@ class StopDataProvider extends Component {
             return day
         })
 
+        Object.entries(yData).map( ([key, value]) => {
+            return [key, value.reverse()]
+        })
+
         this.setState({yData: yData}, () => {
             this.calculateAverageForAllStops();
         });
@@ -65,6 +69,7 @@ class StopDataProvider extends Component {
                 xData.push(day.date);
                 return day
             });
+            xData.reverse()
 
             this.setState({xData: xData}, () => {
                 this.parseStops(resp);

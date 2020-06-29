@@ -51,6 +51,10 @@ class LineDataProvider extends Component {
             return day
         })
 
+        Object.entries(yData).map( ([key, value]) => {
+            return [key, value.reverse()]
+        })
+
         this.setState({yData: yData}, () => {
             this.calculateAverageForAllLines();
         });
@@ -64,6 +68,7 @@ class LineDataProvider extends Component {
                 xData.push(day.date);
                 return day
             });
+            xData.reverse()
 
             this.setState({xData: xData}, () => {
                 this.parseLines(resp);

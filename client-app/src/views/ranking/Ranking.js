@@ -103,7 +103,7 @@ class Ranking extends LineDataProvider {
                                 <CCard>
                                     <CCardHeader>
                                         <h4>Ranking</h4>
-                                        <h6>Line with the biggest average delay from all days or one specified on top</h6>
+                                        <h6>Line with the biggest average delay from all days or one specified day on top</h6>
                                     </CCardHeader>
                                     <CCardBody>
                                         <CTabs>

@@ -15,8 +15,8 @@ class CrawlerService:
     def execute(self):
         logging.info("executing crawler service")
         ids = self.get_all_stops_ids()
-        for id in ids:
-            self.update_trips_data(id)
+        # for id in ids:
+        #     self.update_trips_data(id)
 
 
     def update_trips_data(self, stop_id):

@@ -21,6 +21,7 @@ class ArchiveService:
         max_delay_date_time = timedelta(seconds=0)
         max_stop_trip_count = 0
         max_stop_trip_name = ""
+        print("Generating stops statistics...")
         for stop in all_stops:
             print("Current stop" + stop) 
             trip_count = 0
@@ -56,17 +57,30 @@ class ArchiveService:
         print("AllLines")
         print(allLines)
         result = {}
+        max_delay_line_name = ""
+        max_delay_line_date_time = timedelta(seconds=0)
+        max_line_trip_count = 0
+        max_line_trip_name = ""
 
         for line in allLines:
             print("Current Line" + line) 
             lineTrips = self.tripRepository.get_trips_for_line(line, currentDay)
             delaySum = datetime.strptime("00:00", FMT)
+            trip_count = 0
             for trip in lineTrips:
+                trip_count = trip_count + 1
                 planned_time = trip["planned_time"]
                 actual_time = trip["actual_time"]
                 tdelta = datetime.strptime(actual_time, FMT) - datetime.strptime(planned_time, FMT)
                 delaySum = delaySum + tdelta
+                if(tdelta.total_seconds() > max_delay_line_date_time.total_seconds()):
+                    max_delay_line_date_time = tdelta
+                    max_delay_line_name = line
             
+            if (trip_count > max_line_trip_count):
+                max_line_trip_count = trip_count
+                max_line_trip_name = line  
+
             sumInSeconds = float(delaySum.hour * 60 * 60 + delaySum.minute * 60)
             avgDelayInSeconds = float(sumInSeconds) / float(len(lineTrips))
 
@@ -81,4 +95,9 @@ class ArchiveService:
         print(stop_result)
         today=datetime.today().strftime('%Y-%m-%d')
         self.statisticsRepository.delete_line_statistics_by_day(today)
-        self.statisticsRepository.insert_line_statistics(result, stop_result, max_delay_stop_name, max_delay_date_time.total_seconds(), max_stop_trip_name, max_stop_trip_count, today) 
+        self.statisticsRepository.insert_line_statistics(result, stop_result,
+            max_delay_stop_name, max_delay_date_time.total_seconds(),
+            max_stop_trip_name, max_stop_trip_count,
+            max_delay_line_name, max_delay_line_date_time.total_seconds(), 
+            max_line_trip_name, max_line_trip_count,
+            today) 

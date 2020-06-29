@@ -107,7 +107,7 @@ class StopStatistics extends StopDataProvider {
                                 <CCard>
                                     <CCardHeader>
                                         <h4>Stop statistics</h4>
-                                        <h6>Delay in seconds per stop</h6>
+                                        <h6>Delay in seconds per stop calculated for all days or one specified</h6>
                                     </CCardHeader>
                                     <CCardBody>
                                         <CTabs>

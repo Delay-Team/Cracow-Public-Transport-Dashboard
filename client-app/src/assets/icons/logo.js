@@ -1,5 +1,5 @@
 export const logo = ['108 134', `
-  <title>coreui react pro</title>
+  <title>Cracow Public Transport Dashboard</title>
   <g>
     <g style="fill:#3c4b64">
       <g>

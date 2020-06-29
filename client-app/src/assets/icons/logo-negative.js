@@ -1,5 +1,5 @@
 export const logoNegative = ['118 134', `
-  <title>coreui react pro logo</title>
+  <title>Cracow Public Transport Dashboard</title>
   <g>
     <g style="fill:#fff;">
       <g>

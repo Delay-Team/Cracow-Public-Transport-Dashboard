@@ -29,6 +29,8 @@ class Dashboard extends LineDataProvider {
                                     <CRow>
                                         <CCol sm="5">
                                             <h4 id="traffic" className="card-title mb-0">Delays for all vehicles</h4>
+                                            <div>Average delay for all lines per specific day</div>
+                                            <br />
                                             <div className="small text-muted">[seconds]</div>
                                         </CCol>
                                     </CRow>

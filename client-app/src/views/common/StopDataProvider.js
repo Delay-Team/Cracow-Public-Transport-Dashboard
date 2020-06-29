@@ -52,9 +52,10 @@ class StopDataProvider extends Component {
             return day
         })
 
-        Object.entries(yData).map( ([key, value]) => {
+        let dupa = Object.entries(yData).map( ([key, value]) => {
             return [key, value.reverse()]
         })
+        console.log(dupa)
 
         this.setState({yData: yData}, () => {
             this.calculateAverageForAllStops();

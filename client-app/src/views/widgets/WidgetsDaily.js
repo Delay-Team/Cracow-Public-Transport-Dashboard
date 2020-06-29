@@ -71,7 +71,7 @@ class WidgetsDaily extends Component {
                     <h6>{date}</h6>
                     <CRow>
                             {
-                                Object.keys(data).map((key, index) => {
+                                Object.keys(data).map((key) => {
                                     return this.generateWidget(key, data[key], date)
                                 })
                             }

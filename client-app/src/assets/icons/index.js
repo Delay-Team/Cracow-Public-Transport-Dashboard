@@ -8,6 +8,7 @@ import {
   cilChartPie,
   cilLocationPin,
   cilSpeedometer,
+  cilChartLine
 } from '@coreui/icons'
 
 export const icons = Object.assign({}, {
@@ -19,5 +20,6 @@ export const icons = Object.assign({}, {
   cilCalculator,
   cilLocationPin,
   cilChartPie,
-  cilSpeedometer
+  cilSpeedometer,
+  cilChartLine
 })

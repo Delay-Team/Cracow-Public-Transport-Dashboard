@@ -119,3 +119,5 @@ ArchiveManager/venv
 **/.idea
 
 local.settings.json
+
+restapi/package-lock.json

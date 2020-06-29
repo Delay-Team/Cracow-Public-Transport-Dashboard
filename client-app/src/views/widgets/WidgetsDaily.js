@@ -15,12 +15,34 @@ class WidgetsDaily extends Component {
             return <CCol sm="6" lg="3" key={key} />
         }
 
+        let dataPoints = [65, 59, 84, 84, 51, 55, 40]
+        let color = "facebook"
+
         if (this.counter === 0) {
+            dataPoints = [65, 59, 84, 84, 51, 55, 40]
+            color = "facebook"
             this.counter++;
-            return (
+        }
+        else if (this.counter === 1) {
+            dataPoints = [1, 13, 9, 17, 34, 41, 38]
+            color = "twitter"
+            this.counter++;
+        }
+        else if (this.counter === 2) {
+            dataPoints = [78, 81, 80, 45, 34, 12, 40]
+            color = "linkedin"
+            this.counter++;
+        }
+        else if (this.counter === 3) {
+            dataPoints = [35, 23, 56, 22, 97, 23, 64]
+            color = "gradient-warning"
+            this.counter=0;
+        }
+
+        return (
                 <CCol sm="6" lg="3" key={key}>
                     <CWidgetBrand
-                        color="facebook"
+                        color={color}
                         rightFooter={Object.entries(values)[0][0].split('_').join(' ')}
                         rightHeader={Object.entries(values)[0][1].toString()}
                         leftFooter={Object.entries(values)[1][0].split('_').join(' ')}
@@ -30,84 +52,12 @@ class WidgetsDaily extends Component {
                         <ChartLineSimple
                             className="position-absolute w-100 h-100"
                             backgroundColor="rgba(255,255,255,.1)"
-                            dataPoints={[65, 59, 84, 84, 51, 55, 40]}
+                            dataPoints={dataPoints}
                             label="Friends"
                             labels="months"
                         />
                     </CWidgetBrand>
-                </CCol>
-            )
-        }
-        else if (this.counter === 1) {
-            this.counter++;
-            return (
-                <CCol sm="6" lg="3" key={key}>
-                    <CWidgetBrand
-                        color="twitter"
-                        rightFooter={Object.entries(values)[0][0].split('_').join(' ')}
-                        rightHeader={Object.entries(values)[0][1].toString()}
-                        leftFooter={Object.entries(values)[1][0].split('_').join(' ')}
-                        leftHeader={Object.entries(values)[1][1].toString()}
-                    >
-                        <p style={{fontSize: '20px'}}>{key.split('_').join(' ')}</p>
-                        <ChartLineSimple
-                            className="position-absolute w-100 h-100"
-                            backgroundColor="rgba(255,255,255,.1)"
-                            dataPoints={[1, 13, 9, 17, 34, 41, 38]}
-                            label="Followers"
-                            labels="months"
-                        />
-                    </CWidgetBrand>
-                </CCol>
-            )
-        }
-        else if (this.counter === 2) {
-            this.counter++;
-            return (
-                <CCol sm="6" lg="3" key={key}>
-                    <CWidgetBrand
-                        color="linkedin"
-                        rightFooter={Object.entries(values)[0][0].split('_').join(' ')}
-                        rightHeader={Object.entries(values)[0][1].toString()}
-                        leftFooter={Object.entries(values)[1][0].split('_').join(' ')}
-                        leftHeader={Object.entries(values)[1][1].toString()}
-                    >
-                        <p style={{fontSize: '20px'}}>{key.split('_').join(' ')}</p>
-                        <ChartLineSimple
-                            className="position-absolute w-100 h-100"
-                            backgroundColor="rgba(255,255,255,.1)"
-                            dataPoints={[78, 81, 80, 45, 34, 12, 40]}
-                            label="Contracts"
-                            labels="months"
-                        />
-                    </CWidgetBrand>
-                </CCol>
-            )
-        }
-        else if (this.counter === 3) {
-            this.counter=0;
-            return(
-                <CCol sm="6" lg="3" key={key}>
-                    <CWidgetBrand
-                        rightFooter={Object.entries(values)[0][0].split('_').join(' ')}
-                        rightHeader={Object.entries(values)[0][1].toString()}
-                        leftFooter={Object.entries(values)[1][0].split('_').join(' ')}
-                        leftHeader={Object.entries(values)[1][1].toString()}
-                        color="gradient-warning"
-                    >
-                        <p style={{fontSize: '20px'}}>{key.split('_').join(' ')}</p>
-                        <ChartLineSimple
-                            className="position-absolute w-100 h-100"
-                            backgroundColor="rgba(255,255,255,.1)"
-                            dataPoints={[35, 23, 56, 22, 97, 23, 64]}
-                            label="Followers"
-                            labels="months"
-                        />
-                    </CWidgetBrand>
-                </CCol>
-            )
-        }
-
+                </CCol>)
     }
 
     generatePerDay = (data, index) => {
